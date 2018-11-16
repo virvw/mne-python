@@ -25,6 +25,8 @@ Changelog
 
 - Add ``drop_refs=True`` parameter to :func:`set_bipolar_reference` to drop/keep anode and cathode channels after applying the reference by `Cristóbal Moënne-Loccoz`_.
 
+- Add new tutorial to illustrate sleep data analysis by `Alex Gramfort`_, `Stanislas Chambon`_ and `Joan Massich`_
+
 - Add 448-labels subdivided aparc cortical parcellation by `Denis Engemann`_ and `Sheraz Khan`_
 
 - Add keyboard shortcuts to nativate volume source estimates in time using (shift+)left/right arrow keys by `Mainak Jas`_
@@ -3113,4 +3115,8 @@ of commits):
 
 .. _Sara Sommariva: http://www.dima.unige.it/~sommariva/
 
+<<<<<<< HEAD
 .. _Cristóbal Moënne-Loccoz: https://github.com/cmmoenne
+=======
+.. _Stanislas Chambon: https://github.com/Slasnista
+>>>>>>> Add whats new
