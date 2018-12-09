@@ -3115,8 +3115,6 @@ of commits):
 
 .. _Sara Sommariva: http://www.dima.unige.it/~sommariva/
 
-<<<<<<< HEAD
 .. _Cristóbal Moënne-Loccoz: https://github.com/cmmoenne
-=======
+
 .. _Stanislas Chambon: https://github.com/Slasnista
->>>>>>> Add whats new
