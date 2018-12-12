@@ -322,7 +322,7 @@ for each experimental session, *i.e.*, each time when new head
 digitization data are employed.
 
 The interactive source analysis software :ref:`mne_analyze` provides
-tools for coordinate frame alignment, see :ref:`ch_interactive_analysis`.
+tools for coordinate frame alignment, see :ref:`c_legacy_ch_interactive_analysis`.
 :ref:`CHDIJBIG` also contains tips for using :ref:`mne_analyze` for
 this purpose.
 
@@ -421,7 +421,7 @@ And the results can be viewed as::
 The interactive analysis tool :ref:`mne_analyze` can also
 be used to explore the data and to produce quantitative analysis
 results, screen snapshots, and QuickTime (TM) movie files,
-see :ref:`ch_interactive_analysis`.
+see :ref:`c_legacy_ch_interactive_analysis`.
 
 Group analyses
 --------------

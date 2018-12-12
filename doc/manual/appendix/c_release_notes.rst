@@ -1,6 +1,6 @@
 
 
-.. _release_notes:
+.. _c_legacy_release_notes:
 
 =============
 Release notes
@@ -21,7 +21,7 @@ Manual
 ======
 
 The manual has been significantly expanded and reorganized.
-:ref:`ch_interactive_analysis` describing mne_analyze has
+:ref:`c_legacy_ch_interactive_analysis` describing mne_analyze has
 been added. :ref:`ch_sample_data` contains instructions for analyzing
 the sample data set provided with the software. Useful background
 material is listed in :ref:`ch_reading`. Almost all utility programs
@@ -341,7 +341,7 @@ Manual
 
 The changes described below briefly are documented in the
 relevant sections of the manual. Change bars are employed to indicate
-changes with respect to manual version 2.5. :ref:`ch_forward` now
+changes with respect to manual version 2.5. :ref:`c_legacy_ch_forward` now
 contains a comprehensive discussion of the various coordinate systems
 used in MEG/EEG data.
 

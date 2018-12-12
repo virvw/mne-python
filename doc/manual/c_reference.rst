@@ -29,7 +29,7 @@ Software components
     +============================+============================================+
     | `mne_analyze`_             | An interactive analysis tool for computing |
     |                            | source estimates, see                      |
-    |                            | :ref:`ch_interactive_analysis`.            |
+    |                            | :ref:`c_legacy_ch_interactive_analysis`.   |
     +----------------------------+--------------------------------------------+
     | `mne_average_estimates`_   | Average data across subjects.              |
     +----------------------------+--------------------------------------------+
@@ -98,7 +98,7 @@ Software components
     +----------------------------+--------------------------------------------+
 
 
-.. _ch_misc:
+.. _c_legacy_utilities:
 
 Utilities
 =========
@@ -2124,7 +2124,7 @@ Visualization options
     with the ``--smooth`` option. The morphing process can
     be made faster by precomputing the necessary morphing maps with mne_make_morph_maps ,
     see :ref:`CHDBBHDH`. More information about morphing and averaging
-    can be found in :ref:`ch_morph`.
+    can be found in :ref:`c_legacy_ch_morph`.
 
 ``--morphgrade <*number*>``
 

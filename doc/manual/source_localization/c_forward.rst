@@ -1,5 +1,4 @@
-
-
+.. _c_legacy_ch_forward:
 .. _ch_forward:
 
 ====================

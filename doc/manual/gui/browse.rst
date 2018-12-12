@@ -19,7 +19,7 @@ addition, the program is capable of off-line averaging and estimation
 of covariance matrices. :ref:`mne_browse_raw` can
 be also used to view averaged data in the topographical layout.
 Finally, :ref:`mne_browse_raw` can communicate
-with :ref:`mne_analyze` described in :ref:`ch_interactive_analysis` to
+with :ref:`mne_analyze` described in :ref:`c_legacy_ch_interactive_analysis` to
 calculate current estimates from raw data interactively.
 
 :ref:`mne_browse_raw` has also

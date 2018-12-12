@@ -1,4 +1,4 @@
-.. _ch_mne:
+.. _c_legacy_ch_mne:
 
 ==================================
 The minimum-norm current estimates
@@ -22,7 +22,7 @@ presented in the tutorial
 
 The page starts with a mathematical description of the method.
 The interactive program for inspecting data and inverse solutions,
-:ref:`mne_analyze`, is covered in :ref:`ch_interactive_analysis`.
+:ref:`mne_analyze`, is covered in :ref:`c_legacy_ch_interactive_analysis`.
 
 .. _CBBDJFBJ:
 
@@ -470,7 +470,7 @@ output to the screen. In addition, :ref:`mne_make_movie` can
 produce stc or w files which contain the numerical current estimate
 data in a simple binary format for postprocessing. These files can
 be displayed in :ref:`mne_analyze`,
-see :ref:`ch_interactive_analysis`, utilized in the cross-subject averaging
+see :ref:`c_legacy_ch_interactive_analysis`, utilized in the cross-subject averaging
 process, see :ref:`sphx_glr_auto_tutorials_plot_morph_stc.py`,
 and read into Matlab using the MNE Matlab toolbox, see :ref:`ch_matlab`.
 
