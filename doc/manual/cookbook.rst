@@ -321,10 +321,13 @@ the definition of the coordinate transformation computation
 for each experimental session, *i.e.*, each time when new head
 digitization data are employed.
 
-The interactive source analysis software :ref:`mne_analyze` provides
-tools for coordinate frame alignment, see :ref:`c_legacy_ch_interactive_analysis`.
-:ref:`CHDIJBIG` also contains tips for using :ref:`mne_analyze` for
-this purpose.
+The corregistration is stored in ``-trans.fif`` file. If is present,
+you can follow :ref:`plot_source_alignment` to validate its correctness.
+If the ``-trans.fif`` is not present or the alignment is not correct
+you need to use :func:`mne.gui.coregistration` (or its convenient command line
+equivalent :ref:`gen_mne_coreg`) to generate it.
+
+.. XXX: It would be good to link to the ``-trans.fif`` file description
 
 .. warning:: This step is important. If the alignment of the
              coordinate frames is inaccurate all subsequent processing
