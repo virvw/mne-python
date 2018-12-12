@@ -55,7 +55,7 @@ Software components
     |                            | decomposition, see :ref:`CIHCFJEI`.        |
     +----------------------------+--------------------------------------------+
     | `mne_forward_solution`_    | Calculate the forward solution matrix, see |
-    |                            | :ref:`CHDDIBAH`.                           |
+    |                            | :ref:`c_legacy_CHDDIBAH`.                  |
     +----------------------------+--------------------------------------------+
     | `mne_inverse_operator`_    | Compute the inverse operator decomposition |
     |                            | see :ref:`c_legacy_inverse_operator`.      |
@@ -64,7 +64,7 @@ Software components
     |                            | :ref:`c_legacy_movies_and_snapshots`.      |
     +----------------------------+--------------------------------------------+
     | `mne_make_source_space`_   | Create a *fif* source space description    |
-    |                            | file, see :ref:`BEHCGJDD`.                 |
+    |                            | file, see :ref:`c_legacy_BEHCGJDD`.        |
     +----------------------------+--------------------------------------------+
     | `mne_process_raw`_         | A batch-mode version of mne_browse_raw,    |
     |                            | see :ref:`ch_browse`.                      |
@@ -129,7 +129,7 @@ Utilities
     |                                  | fif data file.                             |
     +----------------------------------+--------------------------------------------+
     | `mne_average_forward_solutions`_ | Calculate an average of forward solutions, |
-    |                                  | see :ref:`CHDBBFCA`.                       |
+    |                                  | see :ref:`c_legacy_CHDBBFCA`.              |
     +----------------------------------+--------------------------------------------+
     | `mne_brain_vision2fiff`_         | Convert EEG data from BrainVision format   |
     |                                  | to fif format.                             |
@@ -226,7 +226,7 @@ Utilities
     +----------------------------------+--------------------------------------------+
     | `mne_list_coil_def`_             | Create the coil description file. This     |
     |                                  | is run automatically at when the software  |
-    |                                  | is set up, see :ref:`BJEHHJIJ`.            |
+    |                                  | is set up, see :ref:`c_legacy_BJEHHJIJ`.   |
     +----------------------------------+--------------------------------------------+
     | `mne_list_proj`_                 | List signal-space projection data from a   |
     |                                  | fif file.                                  |
@@ -265,7 +265,8 @@ Utilities
     |                                  | directories, see :ref:`BABEBJHI`.          |
     +----------------------------------+--------------------------------------------+
     | `mne_prepare_bem_model`_         | Perform the geometry calculations for      |
-    |                                  | BEM forward solutions, see :ref:`CHDJFHEB`.|
+    |                                  | BEM forward solutions, see                 |
+    |                                  | :ref:`c_legacy_CHDJFHEB`.                  |
     +----------------------------------+--------------------------------------------+
     | `mne_process_stc`_               | Manipulate stc files.                      |
     +----------------------------------+--------------------------------------------+
@@ -289,7 +290,7 @@ Utilities
     | `mne_surf2bem`_                  | Create a *fif* file describing the         |
     |                                  | triangulated compartment boundaries for    |
     |                                  | the boundary-element model (BEM),          |
-    |                                  | see :ref:`BEHCACCJ`.                       |
+    |                                  | see :ref:`c_legacy_BEHCACCJ`.              |
     +----------------------------------+--------------------------------------------+
     | `mne_toggle_skips`_              | Change data skip tags in a raw file into   |
     |                                  | ignored skips or vice versa.               |
@@ -309,7 +310,7 @@ Utilities
     |                                  | overlay.                                   |
     +----------------------------------+--------------------------------------------+
     | `mne_volume_source_space`_       | Make a volumetric source space,            |
-    |                                  | see :ref:`BJEFEHJI`.                       |
+    |                                  | see :ref:`c_legacy_BJEFEHJI`.              |
     +----------------------------------+--------------------------------------------+
     | `mne_watershed_bem`_             | Do the segmentation for BEM using the      |
     |                                  | watershed algorithm, see :ref:`BABBDHAG`.  |
@@ -1231,8 +1232,8 @@ The prefix given with the ``--tag`` option is indicated <*tag*> , see :ref:`mne_
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_types              | nchan x 2       | The column lists the types of the channels (1 = MEG,       |
     |                       |                 | 2 = EEG). The second column lists the coil types, see      |
-    |                       |                 | :ref:`BGBBHGEC` and :ref:`CHDBDFJE`. For EEG electrodes,   |
-    |                       |                 | this value equals one.                                     |
+    |                       |                 | :ref:`c_legacy_BGBBHGEC` and :ref:`c_legacy_CHDBDFJE`.     |
+    |                       |                 | For EEG electrodes, this value equals one.                 |
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_pos                | nchan x 3       | The location information for each channel. The first three |
     |                       |                 | values specify the origin of the sensor coordinate system  |
@@ -1646,7 +1647,7 @@ mne_forward_solution
     reside in $SUBJECTS_DIR/$SUBJECT/bem. The former file contains only
     the BEM surface information while the latter files contain the geometry
     information precomputed with :ref:`mne_prepare_bem_model`,
-    see :ref:`CHDJFHEB`. If precomputed geometry is not available,
+    see :ref:`c_legacy_CHDJFHEB`. If precomputed geometry is not available,
     the linear collocation solution will be computed by mne_forward_solution .
 
 ``--origin <*x/mm*> : <*x/mm*> : <*z/mm*>``
@@ -1660,19 +1661,19 @@ mne_forward_solution
 
     This option is significant only if the sphere model is used and
     EEG channels are present. The specified file contains specifications
-    of the EEG sphere model layer structures as detailed in :ref:`CHDIAFIG`. If this option is absent the file ``$HOME/.mne/EEG_models`` will
+    of the EEG sphere model layer structures as detailed in :ref:`c_legacy_CHDIAFIG`. If this option is absent the file ``$HOME/.mne/EEG_models`` will
     be consulted if it exists.
 
 ``--eegmodel <*model name*>``
 
     Specifies the name of the sphere model to be used for EEG. If this option
     is missing, the model Default will
-    be employed, see :ref:`CHDIAFIG`.
+    be employed, see :ref:`c_legacy_CHDIAFIG`.
 
 ``--eegrad <*radius/mm*>``
 
     Specifies the radius of the outermost surface (scalp) of the EEG sphere
-    model, see :ref:`CHDIAFIG`. The default value is 90 mm.
+    model, see :ref:`c_legacy_CHDIAFIG`. The default value is 90 mm.
 
 ``--eegscalp``
 
@@ -1777,7 +1778,7 @@ mne_forward_solution
 ``--grad``
 
     Include the derivatives of the fields with respect to the dipole
-    position coordinates to the output, see :ref:`BJEFEJJG`.
+    position coordinates to the output, see :ref:`c_legacy_BJEFEJJG`.
 
 
 .. _mne_inverse_operator:
@@ -3567,7 +3568,7 @@ The command-line options of mne_convert_dig_data are:
 
     The fif and hpts input
     files are assumed to contain data in the  MNE head coordinate system,
-    see :ref:`BJEBIBAI`. With this option present, the data are
+    see :ref:`c_legacy_BJEBIBAI`. With this option present, the data are
     transformed to the MNE head coordinate system with help of the fiducial
     locations in the data. Use this option if this is not the case or
     if you are unsure about the definition of the coordinate system
@@ -3609,7 +3610,7 @@ where
 
 `` <*x/mm*> , <*y/mm*> , <*z/mm*>``
 
-    Location of the point, usually in the MEG head coordinate system, see :ref:`BJEBIBAI`.
+    Location of the point, usually in the MEG head coordinate system, see :ref:`c_legacy_BJEBIBAI`.
     Some programs have options to accept coordinates in meters instead
     of millimeters. With ``--meters`` option, mne_transform_points lists
     the coordinates in meters.
@@ -3699,7 +3700,7 @@ the following command-line options:
 
 ``--tri <*name*>``
 
-    Specifies a text format input file. The format of this file is described in :ref:`BEHDEFCD`.
+    Specifies a text format input file. The format of this file is described in :ref:`c_legacy_BEHDEFCD`.
 
 ``--meters``
 
@@ -3787,7 +3788,7 @@ the following command-line options:
 ``--triout <*name*>``
 
     Specifies an ASCII output file that will contain the surface data
-    in the triangle file format described in :ref:`BEHDEFCD`.
+    in the triangle file format described in :ref:`c_legacy_BEHDEFCD`.
 
 ``--pntout <*name*>``
 
@@ -4102,7 +4103,7 @@ Note that it is mandatory to have the three fiducial locations (nasion
 and the two auricular points) included in the digitization data.
 Using the locations of the fiducial points the digitization data
 are converted to the MEG head coordinate system employed in the
-MNE software, see :ref:`BJEBIBAI`. In the comparison of the
+MNE software, see :ref:`c_legacy_BJEBIBAI`. In the comparison of the
 channel names only the initial segment up to the first '-' (dash)
 in the EDF/EDF+/BDF channel name is significant.
 
@@ -4425,8 +4426,8 @@ is provided in :ref:`BEHHAGHE`.
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_types              | nchan x 2       | The column lists the types of the channels (1 = MEG, 2 =   |
     |                       |                 | EEG). The second column lists the coil types, see          |
-    |                       |                 | :ref:`BGBBHGEC` and :ref:`CHDBDFJE`. For EEG electrodes,   |
-    |                       |                 | this value equals one.                                     |
+    |                       |                 | :ref:`c_legacy_BGBBHGEC` and :ref:`c_legacy_CHDBDFJE`.     |
+    |                       |                 | For EEG electrodes, this value equals one.                 |
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_lognos             | nchan x 1       | Logical channel numbers as listed in the fiff file         |
     +-----------------------+-----------------+------------------------------------------------------------+
@@ -4692,7 +4693,7 @@ To import the data, the following input files are mandatory:
   containing the locations and orientations of the sensors. This file
   can be exported directly from the KIT system.
 
-.. note:: The output fif file will use the Neuromag head    coordinate system convention, see :ref:`BJEBIBAI`. A coordinate    transformation between the CTF/4D head coordinates and the Neuromag    head coordinates is included. This transformation can be read with    MNE Matlab Toolbox routines, see :ref:`ch_matlab`.
+.. note:: The output fif file will use the Neuromag head    coordinate system convention, see :ref:`c_legacy_BJEBIBAI`. A coordinate    transformation between the CTF/4D head coordinates and the Neuromag    head coordinates is included. This transformation can be read with    MNE Matlab Toolbox routines, see :ref:`ch_matlab`.
 
 The following input files are optional:
 
@@ -5012,7 +5013,7 @@ data as input. The command-line options are:
     the talairach.xfm file referred to in the MRI volume, and the the
     fixed transforms :math:`T_-` and :math:`T_+` will
     added to the output file. For definition of the coordinate transformations,
-    see :ref:`CHDEDFIB`.
+    see :ref:`c_legacy_CHDEDFIB`.
 
 ``--talairach <*name*>``
 
@@ -5331,7 +5332,7 @@ mne_prepare_bem_model
     Specify the name of the file containing the triangulations of the BEM
     surfaces and the conductivities of the compartments. The standard
     ending for this file is ``-bem.fif`` and it is produced
-    either with the utility :ref:`mne_surf2bem` (:ref:`BEHCACCJ`) or the
+    either with the utility :ref:`mne_surf2bem` (:ref:`c_legacy_BEHCACCJ`) or the
     convenience script :ref:`mne_setup_forward_model`,
     see :ref:`CIHDBFEG`.
 
@@ -5469,8 +5470,8 @@ is provided in :ref:`BEHJEIHJ`.
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_types              | nchan x 2       | The column lists the types of the channesl (1 = MEG, 2 =   |
     |                       |                 | EEG). The second column lists the coil types, see          |
-    |                       |                 | :ref:`BGBBHGEC` and :ref:`CHDBDFJE`. For EEG electrodes,   |
-    |                       |                 | this value equals one.                                     |
+    |                       |                 | :ref:`c_legacy_BGBBHGEC` and :ref:`c_legacy_CHDBDFJE`.     |
+    |                       |                 | For EEG electrodes, this value equals one.                 |
     +-----------------------+-----------------+------------------------------------------------------------+
     | ch_lognos             | nchan x 1       | Logical channel numbers as listed in the fiff file         |
     +-----------------------+-----------------+------------------------------------------------------------+
@@ -6106,17 +6107,18 @@ mne_surf2bem
     surface (``--surf`` or ``--tri`` options) details
     of the surface specification can be given with the options listed
     in :ref:`BEHCDICC`. The format of these files is described
-    in :ref:`BEHDEFCD`.
+    in :ref:`c_legacy_BEHDEFCD`.
 
 ``--check``
 
     Check that the surfaces are complete and that they do not intersect. This
-    is a recommended option. For more information, see :ref:`BEHCBDDE`.
+    is a recommended option. For more information, see :ref:`c_legacy_BEHCBDDE`.
 
 ``--checkmore``
 
     In addition to the checks implied by the ``--check`` option,
-    check skull and skull thicknesses. For more information, see :ref:`BEHCBDDE`.
+    check skull and skull thicknesses. For more information, see
+    :ref:`c_legacy_BEHCBDDE`.
 
 ``--fif <*name*>``
 

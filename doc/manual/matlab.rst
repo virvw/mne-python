@@ -504,7 +504,7 @@ The documented structures are:
 
     The coil definition structure useful for forward calculations and array
     visualization, see :ref:`BGBGBEBH`. For more detailed information on
-    coil definitions, see :ref:`BJEIAEIE`.
+    coil definitions, see :ref:`c_legacy_BJEIAEIE`.
 
 **ch**
 
@@ -808,7 +808,7 @@ The documented structures are:
 
 .. tabularcolumns:: |p{0.2\linewidth}|p{0.2\linewidth}|p{0.55\linewidth}|
 .. _BGBGBEBH:
-.. table:: The coildef structure. For more detailed information, see :ref:`BJEIAEIE`.
+.. table:: The coildef structure. For more detailed information, see :ref:`c_legacy_BJEIAEIE`.
 
     +-------------------+-------------------+----------------------------------------------------------+
     | Field             | Data Type         | Description                                              |
@@ -1124,7 +1124,8 @@ The documented structures are:
     |                         | matrix      |                                                          |
     +-------------------------+-------------+----------------------------------------------------------+
     | sol_grad                | named       | The derivatives of the forward solution with respect to  |
-    |                         | matrix      | the dipole location coordinates, see :ref:`BJEFEJJG`.    |
+    |                         | matrix      | the dipole location coordinates, see                     | 
+    |                         |             | :ref:`c_legacy_BJEFEJJG`.                                |
     |                         |             | This field is present only if the forward solution was   |
     |                         |             | computed with the ``--grad`` option, see                 |
     |                         |             | :ref:`mne_forward_solution`.                             |
