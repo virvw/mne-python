@@ -540,7 +540,7 @@ The documented structures are:
 
     Inverse operator decomposition data returned by mne_read_inverse_operator ,
     see :ref:`BGBIEIJE`. For more information on inverse operator
-    decomposition, see :ref:`CBBDJFBJ`. For an example on how to
+    decomposition, see :ref:`c_legacy_CBBDJFBJ`. For an example on how to
     compute inverse solution using this data, see the sample routine mne_ex_compute_inverse .
 
 .. note:: The MNE Matlab toolbox tries it best to employ vertex numbering starting from 1 as opposed to 0 as recorded in the data files. There are, however, two exceptions where explicit attention to the vertex numbering convention is needed. First, the standard stc and w file reading and writing routines return and    assume zero-based vertex numbering. There are now versions with names ending with '1', which return and assume one-based vertex numbering, see :ref:`BABBDDAI`. Second, the logno field of the channel information in the data files produced by mne_compute_raw_inverse is the zero-based number of the vertex whose source space signal is contained on this channel.

@@ -25,6 +25,7 @@ The interactive program for inspecting data and inverse solutions,
 :ref:`mne_analyze`, is covered in :ref:`c_legacy_ch_interactive_analysis`.
 
 .. _CBBDJFBJ:
+.. _c_legacy_CBBDJFBJ:
 
 Minimum-norm estimates
 ######################
@@ -69,7 +70,7 @@ The expected value of the current amplitudes at time *t* is
 then given by :math:`\hat{j}(t) = Mx(t)`, where :math:`x(t)` is
 a vector containing the measured MEG and EEG data values at time *t*.
 
-.. _mne_regularization:
+.. _c_legacy_mne_regularization:
 
 Regularization
 ==============
@@ -93,13 +94,14 @@ also by minimizing the cost function
 .. math::    S = \tilde{e}^T \tilde{e} + \lambda^2 j^T R^{-1} j\ ,
 
 where the first term consists of the difference between the
-whitened measured data (see :ref:`CHDDHAGE`) and those predicted
+whitened measured data (see :ref:`c_legacy_CHDDHAGE`) and those predicted
 by the model while the second term is a weighted-norm of the current
 estimate. It is seen that, with increasing :math:`\lambda^2`,
 the source term receive more weight and larger discrepancy between
 the measured and predicted data is tolerable.
 
 .. _CHDDHAGE:
+.. _c_legacy_CHDDHAGE:
 
 Whitening and scaling
 =====================
@@ -141,6 +143,7 @@ See :ref:`tut_compute_covariance` for example of noise covariance
 computation and whitening.
 
 .. _cov_regularization:
+.. _c_legacy_cov_regularization:
 
 Regularization of the noise-covariance matrix
 =============================================
@@ -154,11 +157,11 @@ of this problem, the following quantities can be affected:
 - The model data predicted by the current estimate,
 
 - Estimates of signal-to-noise ratios, which lead to estimates
-  of the required regularization, see :ref:`mne_regularization`,
+  of the required regularization, see :ref:`c_legacy_mne_regularization`,
 
 - The estimated current values, and
 
-- The noise-normalized estimates, see :ref:`noise_normalization`.
+- The noise-normalized estimates, see :ref:`c_legacy_noise_normalization`.
 
 Fortunately, the latter two are least likely to be affected
 due to regularization of the estimates. However, in some cases especially
@@ -182,12 +185,13 @@ to the channels contained in each channel group.
 Using the UNIX tools :ref:`mne_inverse_operator`, the values
 :math:`\varepsilon_k` can be adjusted with the regularization options
 ``--magreg`` , ``--gradreg`` , and ``--eegreg`` specified at the time of the
-inverse operator decomposition, see :ref:`inverse_operator`. The convenience script
+inverse operator decomposition, see :ref:`c_legacy_inverse_operator`. The convenience script
 :ref:`mne_do_inverse_operator` has the ``--magreg`` and ``--gradreg`` combined to
 a single option, ``--megreg`` , see :ref:`CIHCFJEI`.
 Suggested range of values for :math:`\varepsilon_k` is :math:`0.05 \dotso 0.2`.
 
 .. _mne_solution:
+.. _c_legacy_mne_solution:
 
 Computation of the solution
 ===========================
@@ -230,7 +234,7 @@ independent of  :math:`L` and, for fixed :math:`\lambda`,
 we see directly that :math:`j(t)` is independent
 of :math:`L`.
 
-.. _noise_normalization:
+.. _c_legacy_noise_normalization:
 
 Noise normalization
 ===================
@@ -263,7 +267,7 @@ see directly that
 
 .. math::    \tilde{M} \tilde{M}^T\ = \bar{V} \Gamma^2 \bar{V}^T\ .
 
-Under the conditions expressed at the end of :ref:`mne_solution`, it follows that the *t*-statistic values associated
+Under the conditions expressed at the end of :ref:`c_legacy_mne_solution`, it follows that the *t*-statistic values associated
 with fixed-orientation sources) are thus proportional to :math:`\sqrt{L}` while
 the *F*-statistic employed with free-orientation sources is proportional
 to :math:`L`, correspondingly.
@@ -272,7 +276,7 @@ to :math:`L`, correspondingly.
 
 .. note:: The MNE software usually computes the square    roots of the F-statistic to be displayed on the inflated cortical    surfaces. These are also proportional to :math:`\sqrt{L}`.
 
-.. _CHDCACDC:
+.. _c_legacy_CHDCACDC:
 
 Predicted data
 ==============
@@ -294,7 +298,7 @@ where the diagonal matrix :math:`\Pi` has
 elements :math:`\pi_k = \lambda_k \gamma_k` The predicted data is
 thus expressed as the weighted sum of the 'recolored eigenfields' in :math:`C^{^1/_2} U`.
 
-.. _patch_stats:
+.. _c_legacy_patch_stats:
 
 Cortical patch statistics
 =========================
@@ -357,7 +361,7 @@ of the surface normal data:
   to fLOC except that the value given with the ``--loosevar`` option
   will be multiplied by :math:`\sigma_d`, defined above.
 
-.. _depth_weighting:
+.. _c_legacy_depth_weighting:
 
 Depth weighting
 ===============
@@ -377,7 +381,7 @@ the order of the depth weighting, specified with the ``--weightexp`` option
 to mne_inverse_operator . The
 maximal amount of depth weighting can be adjusted ``--weightlimit`` option.
 
-.. _mne_fmri_estimates:
+.. _c_legacy_mne_fmri_estimates:
 
 fMRI-guided estimates
 =====================
@@ -394,7 +398,7 @@ It turns out that the fMRI weighting has a strong influence
 on the MNE but the noise-normalized estimates are much less affected
 by it.
 
-.. _CBBDGIAE:
+.. _c_legacy_CBBDGIAE:
 
 Effective number of averages
 ############################
@@ -449,17 +453,18 @@ we have
 .. math::    1 / L_{eff} = \sum_{i = 1}^n {1/{L_i}}
 
 .. _inverse_operator:
+.. _c_legacy_inverse_operator:
 
 Inverse-operator decomposition
 ##############################
 
 The program :ref:`mne_inverse_operator` calculates
 the decomposition :math:`A = \tilde{G} R^C = U \Lambda \bar{V^T}`,
-described in :ref:`mne_solution`. It is normally invoked from the convenience
+described in :ref:`c_legacy_mne_solution`. It is normally invoked from the convenience
 script :ref:`mne_do_inverse_operator`.
 
 
-.. _movies_and_snapshots:
+.. _c_legacy_movies_and_snapshots:
 
 Producing movies and snapshots
 ##############################
@@ -475,7 +480,7 @@ process, see :ref:`sphx_glr_auto_tutorials_plot_morph_stc.py`,
 and read into Matlab using the MNE Matlab toolbox, see :ref:`ch_matlab`.
 
 
-.. _computing_inverse:
+.. _c_legacy_computing_inverse:
 
 Computing inverse from raw and evoked data
 ##########################################
@@ -489,7 +494,7 @@ or converted to Matlab format using either :ref:`mne_convert_mne_data`,
 :ref:`mne_raw2mat`, or :ref:`mne_epochs2mat`. See
 :ref:`mne_compute_raw_inverse` for command-line options.
 
-.. _implementation_details:
+.. _c_legacy_implementation_details:
 
 Implementation details
 ======================

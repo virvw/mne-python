@@ -237,7 +237,7 @@ The following changes have been made in mne_inverse_operator :
 mne_compute_raw_inverse
 =======================
 
-This utility is now documented in :ref:`computing_inverse`. The
+This utility is now documented in :ref:`c_legacy_computing_inverse`. The
 utility mne_make_raw_inverse_operator has been removed from the software.
 
 Time range settings

@@ -43,7 +43,7 @@ Software components
     |                            | :ref:`mne_make_movie`.                     |
     +----------------------------+--------------------------------------------+
     | `mne_compute_raw_inverse`_ | Compute the inverse solution from raw data |
-    |                            | see :ref:`computing_inverse`.              |
+    |                            | see :ref:`c_legacy_computing_inverse`.     |
     +----------------------------+--------------------------------------------+
     | `mne_convert_mne_data`_    | Convert MNE data files to other file       |
     |                            | formats.                                   |
@@ -58,10 +58,10 @@ Software components
     |                            | :ref:`CHDDIBAH`.                           |
     +----------------------------+--------------------------------------------+
     | `mne_inverse_operator`_    | Compute the inverse operator decomposition |
-    |                            | see :ref:`inverse_operator`.               |
+    |                            | see :ref:`c_legacy_inverse_operator`.      |
     +----------------------------+--------------------------------------------+
     | `mne_make_movie`_          | Make movies in batch mode, see             |
-    |                            | :ref:`movies_and_snapshots`.               |
+    |                            | :ref:`c_legacy_movies_and_snapshots`.      |
     +----------------------------+--------------------------------------------+
     | `mne_make_source_space`_   | Create a *fif* source space description    |
     |                            | file, see :ref:`BEHCGJDD`.                 |
@@ -682,7 +682,7 @@ mne_compute_mne
 
 This program is gradually becoming obsolete. All of its functions will
 be eventually included to :ref:`mne_make_movie`,
-see :ref:`movies_and_snapshots`. At this time, :ref:`mne_compute_mne` is
+see :ref:`c_legacy_movies_and_snapshots`. At this time, :ref:`mne_compute_mne` is
 still needed to produce time-collapsed w files unless you are willing
 to write a Matlab script of your own for this purpose.
 
@@ -801,7 +801,7 @@ to write a Matlab script of your own for this purpose.
 ``--pred <*name*>``
 
     Save the predicted data into this file. This is a fif file containing
-    the predicted data waveforms, see :ref:`CHDCACDC`.
+    the predicted data waveforms, see :ref:`c_legacy_CHDCACDC`.
 
 ``--outputnorm <*name*>``
 
@@ -874,13 +874,13 @@ mne_compute_raw_inverse
 ``--nave <*value*>``
 
     Specifies the effective number of averaged epochs in the input data, :math:`L_{eff}`,
-    as discussed in :ref:`CBBDGIAE`. If the input data file is
+    as discussed in :ref:`c_legacy_CBBDGIAE`. If the input data file is
     one produced by mne_browse_raw or mne_process_raw ,
     the number of averages is correct in the file. However, if subtractions
     or some more complicated combinations of simple averages are produced,
     e.g., by  using the xplotter software,
     the number of averages should be manually adjusted along the guidelines
-    given in :ref:`CBBDGIAE`. This is accomplished either by
+    given in :ref:`c_legacy_CBBDGIAE`. This is accomplished either by
     employing this flag or by adjusting the number of averages in the
     data file with help of the utility mne_change_nave .
 
@@ -909,7 +909,7 @@ mne_compute_raw_inverse
 
     Specifies a label file to process. For each label file, the values
     of the computed estimates stored in a fif file. For more details,
-    see :ref:`implementation_details`. The label files are produced by tksurfer
+    see :ref:`c_legacy_implementation_details`. The label files are produced by tksurfer
     or mne_analyze and specify regions
     of interests (ROIs). A label file name should end with ``-lh.label`` for
     left-hemisphere ROIs and with ``-rh.label`` for right-hemisphere
@@ -929,7 +929,7 @@ mne_compute_raw_inverse
 ``--align_z``
 
     Instructs the program to try to align the waveform signs within
-    the label. For more information, see :ref:`implementation_details`. This
+    the label. For more information, see :ref:`c_legacy_implementation_details`. This
     flag will not have any effect if the inverse operator has been computed
     with the strict orientation constraint active.
 
@@ -1295,7 +1295,7 @@ The prefix given with the ``--tag`` option is indicated <*tag*> , see :ref:`mne_
     |                       |                 | :math:`A = C_0^{-^1/_2} G R^C = U \Lambda V^T`             |
     |                       |                 | with :math:`R` selected so that                            |
     |                       |                 | :math:`\text{trace}(AA^T) / \text{trace}(I) = 1`           |
-    |                       |                 | as discussed in :ref:`CHDDHAGE`                            |
+    |                       |                 | as discussed in :ref:`c_legacy_CHDDHAGE`                   |
     +-----------------------+-----------------+------------------------------------------------------------+
     | eigen_fields          | nchan x nchan   | The rows of this matrix are the left singular vectors of   |
     |                       |                 | :math:`A`, i.e., the columns of :math:`U`, see above.      |
@@ -1303,11 +1303,11 @@ The prefix given with the ``--tag`` option is indicated <*tag*> , see :ref:`mne_
     | eigen_leads           | nchan x nsource | The rows of this matrix are the right singular vectors of  |
     |                       |                 | :math:`A`, i.e., the columns of :math:`V`, see above.      |
     +-----------------------+-----------------+------------------------------------------------------------+
-    | noise_eigenval        | nchan           | In terms of :ref:`CHDDHAGE`, eigenvalues of :math:`C_0`,   |
-    |                       |                 | i.e., not scaled with number of averages.                  |
+    | noise_eigenval        | nchan           | In terms of :ref:`c_legacy_CHDDHAGE`, eigenvalues of       | 
+    |                       |                 | :math:`C_0`, i.e., not scaled with number of averages.     |
     +-----------------------+-----------------+------------------------------------------------------------+
     | noise_eigenvec        | nchan           | Eigenvectors of the noise covariance matrix. In terms of   |
-    |                       |                 | :ref:`CHDDHAGE`, :math:`U_C^T`.                            |
+    |                       |                 | :ref:`c_legacy_CHDDHAGE`, :math:`U_C^T`.                   |
     +-----------------------+-----------------+------------------------------------------------------------+
     | data                  | nchan x ntime   | The measured data. One row contains the data at one time   |
     |                       |                 | point.                                                     |
@@ -1526,7 +1526,7 @@ mne_do_inverse_operator
 ``--depth``
 
     Employ depth weighting with the standard settings. For details,
-    see :ref:`depth_weighting` and :ref:`inverse_operator`.
+    see :ref:`c_legacy_depth_weighting` and :ref:`c_legacy_inverse_operator`.
 
 ``--bad <*name*>``
 
@@ -1560,7 +1560,7 @@ mne_do_inverse_operator
 ``--megreg <*value*>``
 
     Regularize the MEG part of the noise-covariance matrix by this amount.
-    Suitable values are in the range 0.05...0.2. For details, see :ref:`cov_regularization`.
+    Suitable values are in the range 0.05...0.2. For details, see :ref:`c_legacy_cov_regularization`.
 
 ``--eegreg <*value*>``
 
@@ -1584,7 +1584,7 @@ mne_do_inverse_operator
     the cortical surface. The name of the file given is used as a stem of
     the w files. The actual files should be called <*name*> ``-lh.pri`` and <*name*> ``-rh.pri`` for
     the left and right hemisphere weight files, respectively. The application
-    of the weighting is discussed in :ref:`mne_fmri_estimates`.
+    of the weighting is discussed in :ref:`c_legacy_mne_fmri_estimates`.
 
 ``--fmrithresh <*value*>``
 
@@ -1833,19 +1833,19 @@ mne_inverse_operator
 
     Regularize the planar gradiometer section (channels for which the unit
     of measurement is T/m) of the noise-covariance matrix by the given
-    amount. The value is restricted to the range 0...1. For details, see :ref:`cov_regularization`.
+    amount. The value is restricted to the range 0...1. For details, see :ref:`c_legacy_cov_regularization`.
 
 ``--magreg <value>``
 
     Regularize the magnetometer and axial gradiometer section (channels
     for which the unit of measurement is T) of the noise-covariance matrix
     by the given amount. The value is restricted to the range 0...1.
-    For details, see :ref:`cov_regularization`.
+    For details, see :ref:`c_legacy_cov_regularization`.
 
 ``--eegreg <value>``
 
     Regularize the EEG section of the noise-covariance matrix by the given
-    amount. The value is restricted to the range 0...1. For details, see :ref:`cov_regularization`.
+    amount. The value is restricted to the range 0...1. For details, see :ref:`c_legacy_cov_regularization`.
 
 ``--diagnoise``
 
@@ -1864,17 +1864,17 @@ mne_inverse_operator
 
 ``--depth``
 
-    Employ depth weighting. For details, see :ref:`depth_weighting`.
+    Employ depth weighting. For details, see :ref:`c_legacy_depth_weighting`.
 
 ``--weightexp <value>``
 
     This parameter determines the steepness of the depth weighting function
-    (default = 0.8). For details, see :ref:`depth_weighting`.
+    (default = 0.8). For details, see :ref:`c_legacy_depth_weighting`.
 
 ``--weightlimit <value>``
 
     Maximum relative strength of the depth weighting (default = 10). For
-    details, see :ref:`depth_weighting`.
+    details, see :ref:`c_legacy_depth_weighting`.
 
 ``--fmri <name>``
 
@@ -1889,7 +1889,7 @@ mne_inverse_operator
     the cortical surface. The name of the file given is used as a stem of
     the w files. The actual files should be called <*name*> ``-lh.pri`` and <*name*> ``-rh.pri`` for
     the left and right hemsphere weight files, respectively. The application
-    of the weighting is discussed in :ref:`mne_fmri_estimates`.
+    of the weighting is discussed in :ref:`c_legacy_mne_fmri_estimates`.
 
 ``--fmrithresh <value>``
 
@@ -1956,7 +1956,7 @@ mne_inverse_operator
     it is recommended that the patch statistics are precomputed and
     the source space file containing the patch information is employed
     already when the forward solution is computed, see :ref:`setting_up_source_space` and :ref:`BABCHEJD`.
-    For technical details of the patch information, please consult :ref:`patch_stats`. This option is considered experimental at
+    For technical details of the patch information, please consult :ref:`c_legacy_patch_stats`. This option is considered experimental at
     the moment.
 
 ``--inv <name>``
@@ -2060,13 +2060,13 @@ Options controlling the estimates
 ``--nave <*value*>``
 
     Specifies the effective number of averaged epochs in the input data, :math:`L_{eff}`,
-    as discussed in :ref:`CBBDGIAE`. If the input data file is
+    as discussed in :ref:`c_legacy_CBBDGIAE`. If the input data file is
     one produced by :ref:`mne_browse_raw` or :ref:`mne_process_raw`, the
     number of averages is correct in the file. However, if subtractions
     or some more complicated combinations of simple averages are produced,
     e.g., by  using the xplotter software,
     the number of averages should be manually adjusted along the guidelines
-    given in :ref:`CBBDGIAE`. This is accomplished either by
+    given in :ref:`c_legacy_CBBDGIAE`. This is accomplished either by
     employing this flag or by adjusting the number of averages in the
     data file with help of the utility mne_change_nave .
 

@@ -624,7 +624,7 @@ data and the current estimates in mne_analyze .
 This section contains some useful steps to get you started. A lot
 of information about the capabilities of mne_analyze is
 given in :ref:`c_legacy_ch_interactive_analysis`. Batch-mode processing with
-mne_make_movie is discussed in :ref:`movies_and_snapshots`. Cross-subject
+mne_make_movie is discussed in :ref:`c_legacy_movies_and_snapshots`. Cross-subject
 averaging is covered in :ref:`c_legacy_ch_morph`.
 
 Before launching mne_analyze it
