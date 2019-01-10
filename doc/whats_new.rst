@@ -50,6 +50,8 @@ Bug
 
 - Fix path bugs in :func:`mne.bem.make_flash_bem` and :ref:`gen_mne_flash_bem` by `Eric Larson`_
 
+- Fixed a bug where :meth:`mne.time_frequency.AverageTFR.plot_joint` would mishandle bad channels, by `David Haslacher`_ and `Jona Sassenhagen`_
+
 API
 ~~~
 
@@ -1393,7 +1395,7 @@ API
 
 - Adds :func:`mne.Evoked.apply_baseline` to be consistent with :func:`mne.Epochs.apply_baseline`, by `Felix Raimundo`_
 
-- Deprecated the `baseline` parameter in :class:`mne.Evoked`, by `Felix Raimundo`_
+- Deprecated the ``baseline`` parameter in :class:`mne.Evoked`, by `Felix Raimundo`_
 
 - The API of :meth:`mne.SourceEstimate.plot` and :func:`mne.viz.plot_source_estimates` has been updated to reflect current PySurfer 0.6 API. The ``config_opts`` parameter is now deprecated and will be removed in mne 0.14, and the default representation for time will change from ``ms`` to ``s`` in mne 0.14. By `Christian Brodbeck`_
 
@@ -3122,3 +3124,5 @@ of commits):
 .. _Cristóbal Moënne-Loccoz: https://github.com/cmmoenne
 
 .. _Stanislas Chambon: https://github.com/Slasnista
+
+.. _David Haslacher: https://github.com/davidhaslacher
