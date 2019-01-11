@@ -1,9 +1,11 @@
-import numpy as np
+from itertools import product
 import os.path as op
 
+import numpy as np
 from numpy.testing import (assert_array_almost_equal, assert_array_equal,
                            assert_equal)
 import pytest
+import matplotlib.pyplot as plt
 
 import mne
 from mne import Epochs, read_events, pick_types, create_info, EpochsArray
@@ -17,9 +19,6 @@ from mne.time_frequency.tfr import (morlet, tfr_morlet, _make_dpss,
 from mne.time_frequency import tfr_array_multitaper, tfr_array_morlet
 from mne.viz.utils import _fake_click
 from mne.tests.test_epochs import assert_metadata_equal
-from itertools import product
-import matplotlib
-matplotlib.use('Agg')  # for testing don't use X server
 
 data_path = op.join(op.dirname(__file__), '..', '..', 'io', 'tests', 'data')
 raw_fname = op.join(data_path, 'test_raw.fif')
@@ -442,8 +441,6 @@ def test_io():
 
 def test_plot():
     """Test TFR plotting."""
-    import matplotlib.pyplot as plt
-
     data = np.zeros((3, 2, 3))
     times = np.array([.1, .2, .3])
     freqs = np.array([.10, .20])
@@ -489,8 +486,6 @@ def test_plot():
 
 def test_plot_joint():
     """Test TFR joint plotting."""
-    import matplotlib.pyplot as plt
-
     raw = read_raw_fif(raw_fname)
     times = np.linspace(-0.1, 0.1, 200)
     n_freqs = 3
@@ -526,8 +521,12 @@ def test_plot_joint():
                    topomap_args=topomap_args)
     plt.close('all')
     assert_array_equal(tfr.data, tfr_orig.data)
-    assert (set(tfr.ch_names) == set(tfr_orig.ch_names))
-    assert (set(tfr.times) == set(tfr_orig.times))
+    assert set(tfr.ch_names) == set(tfr_orig.ch_names)
+    assert set(tfr.times) == set(tfr_orig.times)
+
+    # test tfr with picked channels
+    tfr.pick_channels(tfr.ch_names[:-1])
+    tfr.plot_joint(title='auto', colorbar=True, topomap_args=topomap_args)
 
 
 def test_add_channels():
@@ -638,8 +637,8 @@ def test_compute_tfr():
 
     # Inter-trial coherence tests
     out = _compute_tfr(data, freqs, sfreq, output='itc', n_cycles=2.)
-    assert (np.sum(out >= 1) == 0)
-    assert (np.sum(out <= 0) == 0)
+    assert np.sum(out >= 1) == 0
+    assert np.sum(out <= 0) == 0
 
     # Check decim shapes
     # 2: multiple of len(times) even
