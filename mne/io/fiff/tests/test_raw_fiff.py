@@ -418,6 +418,7 @@ def test_split_files():
     assert op.exists(split_fname_bids_part1)
     assert op.exists(split_fname_bids_part2)
 
+    raw_1.set_annotations(Annotations(np.arange(20), np.ones((20,)), 'test'))
     split_fname = op.join(tempdir, 'split_raw.fif')
     raw_1.save(split_fname, buffer_size_sec=1.0, split_size='10MB')
     raw_2 = read_raw_fif(split_fname)
@@ -1520,6 +1521,21 @@ def test_memmap(tmpdir):
     # other things like drop_channels and crop work but do not use memmapping,
     # eventually we might want to add support for some of these as users
     # require them.
+
+
+def test_foo(tmpdir):
+    raw_1 = read_raw_fif(test_fif_fname, preload=False)
+    raw_1.set_annotations(Annotations(np.arange(25), np.zeros((25,)), 'test'),
+                          emit_warning=False)
+    split_fname = op.join(str(tmpdir), 'split_raw.fif')
+    print(str(tmpdir))
+    raw_1.save(split_fname, buffer_size_sec=None, split_size='9MB')
+    raw_2 = read_raw_fif(split_fname)
+
+    print(raw_1.annotations)
+    print(raw_2.annotations)
+
+    assert_array_almost_equal(raw_1.annotations.onset, raw_2.annotations.onset)
 
 
 run_tests_if_main()
