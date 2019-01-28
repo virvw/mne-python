@@ -41,7 +41,7 @@ Documentation
 .. toctree::
     :maxdepth: 1
 
-    manual/workflows.rst
+    workflows.rst
     tutorials.rst
     auto_examples/index.rst
     faq.rst
@@ -59,3 +59,13 @@ The **tutorials** provide in-depth reviews of specific analyses (e.g. preprocess
 The **code examples** :ref:`examples gallery <sphx_glr_auto_examples>` provides you elaborate snippet codes that go through importing your raw data to the outcome of a planned analysis. 
 
 The **mne-study template** drives you through the full pipeline of analysis on sample data.
+
+XXXX Stuff to sort (this cannot be yet removed or it breaks the compilation)
+============================================================================
+
+.. toctree::
+    :maxdepth: 1
+
+    tutorials/philosophy.rst
+    manual/cookbook.rst
+    workflows.rst
